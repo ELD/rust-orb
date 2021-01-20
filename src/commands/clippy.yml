@@ -1,0 +1,8 @@
+description: >
+  This command runs Clippy against the current
+  directory, linting your Rust code.
+
+steps:
+  - run:
+      name: Clippy
+      command: cargo clippy
