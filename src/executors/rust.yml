@@ -1,0 +1,11 @@
+description: >
+  This is a sample executor using Docker and Rust.
+docker:
+  - image: 'edattore/rust:<<parameters.tag>>'
+parameters:
+  tag:
+    default: nightly
+    description: >
+      Pick a specific edattore/rust image variant:
+      https://hub.docker.com/r/edattore/rust
+    type: string
