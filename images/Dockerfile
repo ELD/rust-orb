@@ -1,6 +1,7 @@
 FROM debian:buster-slim
 
 ARG RUST_VERSION
+ARG RUSTUP_PROFILE
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH
@@ -17,7 +18,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN url="https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init" && \
     wget ${url} && \
     chmod +x rustup-init && \
-    ./rustup-init -y --no-modify-path --profile minimal --default-toolchain ${RUST_VERSION} && \
+    ./rustup-init -y --no-modify-path --profile ${RUSTUP_PROFILE} --default-toolchain ${RUST_VERSION} && \
     rm rustup-init && \
     chmod -R a+w ${RUSTUP_HOME} ${CARGO_HOME} && \
     rustup --version && \
